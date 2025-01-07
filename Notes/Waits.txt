@@ -1,0 +1,43 @@
+WAITS
+=======
+
+Why?
+-----
+->Page load time is required
+->element visibility and intractability
+->Async operations => ex: ajax call takes time so wait is required so that these operations are completed
+
+WebDriver Waits : to synchronize test with the state of a web application
+=======================================
+
+Implicit Waits : 
+->defines a global timeout for the webdriver instance
+->webdriver will wait for a specific time waiting for the element
+->driver.manage().timeouts()
+->default waiting mechanism
+-----------------------------------
+=>Once established, it remains in effect for the entire duration that the browser is open.
+=>default value = 0, that is no implicit wait until specified
+=>global effecting all elements and actions performed
+=>setting appropriate timeout allows suffiecient time for elements to load
+
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+scriptTimeout(Duration.ofMinutes(2)) //driver will wait max 2 minutes for all the async scripts to get finished executing
+pageLoadTimeout(Duration.ofSeconds(2)) // webdriver will wait for the page to load for max of 2 seconds before throwing an exception
+
+
+
+=================================================================
+Expicit Waits 
+->can define conditions
+WebDriver Wait and Fluent Wait
+
+=>more intelligent and dynamic
+=>allows program to pause dynamically loaded ajax elements 
+=>to declare explicit waits, Expected Conditions class is used   
+
+Syntax:
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)
+
+wait.until(ExpectedConditions.condition(locator))      

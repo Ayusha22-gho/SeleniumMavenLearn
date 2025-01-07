@@ -1,0 +1,67 @@
+WINDOWS
+==============================================================
+
+New Window opens -> selenium webdriver cannot identify elements in child window
+Throw Nosuchelement exception error
+
+Selenium Webdrivers has methods to handle windows
+-> interact with windows
+->opening and closing windows
+->switching focus b/w them
+
+Each window has a unique window handle allowing switching
+
+->Parent Window : primary interaction
+->Child Window : as a result oof action performed in PW
+
+Window Handle -> unique code made of letters and numbers
+
+Example : popup window , focus needs to be switched to the popup window. using window handle
+
+
+Methods
+
+getWindowHandle() => returns a unique handle of the currently focused window
+getWindowHandles() => retrieves handles of all open windows
+switchTo().window(handle)
+
+Why we need to handle?
+----------------------
+Popup windows :Dialog , login window
+Multiple page flows : testing across multiple windows web page : Ex e commerce website
+External links : switch to new contexts
+User Interactions : user filling a form in popup window
+Third party Integrations : verification ex payment gateway
+User Scenarios : selecting a product and seeing it's details in new window
+Consistence and flow : validating windows are opn /close etc.
+
+=============================================================
+
+FRAMES
+=============================================================
+Divide webpage into multiple independent sections
+
+iFrames => inline frames
+
+Identify frames : switchTo() method
+defaultContent() : focus to be returned to the main page
+
+Handling
+========
+driver.switchTo().frame(0) //By index
+By name or id
+By webelement
+
+Nested Frames
+=============
+
+->Switch from outermost frame to the inner frame sequentially.
+
+
+// switch to outerframe
+//switch to inner frame
+//perform operations in inner frame
+//switch to parent frame : parentFrame()
+//switch to default content
+
+

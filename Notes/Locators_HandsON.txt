@@ -1,0 +1,142 @@
+Locating WebElements
+--------------------
+
+Name
+ID
+ClassName
+TagName
+LinkText
+Partial Link Text
+CSS Selectors
+XPATH
+
+CSS Selectors
+==============
+
+ID
+--------
+#id
+tagname#id
+
+ClassName
+----------
+div.classname1
+div.classname1.classname2 // when class has space b/w them
+.classname
+
+Example : 
+button#seach_button.classname1.classname2
+
+Attribute = attribute_value
+---------------------------
+img[title =redBus][alt = redBus]
+
+Example :
+img.classname[title=redBus]
+
+Contains, Starts With and Ends With
+-----------------------------------
+button[id*=sca] //* = contains
+button[id^=sca] // ^ = starts-with
+button[id$ =sca] //$ = ends with
+
+Comma
+-----
+button#search_button, classname //one of two
+
+First Of
+----------
+Works well with list
+Parent > Child
+ul.classname.classname>li:first-of-type // one of one //selects first element from list
+
+Last Of
+--------
+ul.classname.classname>li:last-of-type
+
+N-TH of type
+------------
+ul.classname.classname>li:nth-of-type(2)
+ul.classname.classname>li:nth-of-type(n) //get all the list elements /ALL
+
+General Sibling(~)
+------------------
+parent > child11 ~ child2
+
+Adjacent Sibling (+)
+---------------------
+element + element 
+ul.classname > li+li[arial-label=Company]
+
+<h1>
+	<h3>
+<h2>
+	<h3>
+<h4>
+	<h3>
+
+h2+h3 //1 of 1
+h3 // 1 of 3
+
+Space for descendants
+-----------------------
+parent child child .....not recommended
+
+Parent Child
+--------------
+Parent > Child
+
+Not
+-----
+parent>child:not(li[aria-label=Contact]) //withput this will identify
+
+=================================================================
+
+XPATH
+=======
+
+Absolute :  from root element
+Relative : getting identified in betwwen the DOM
+
+-------------------------------
+attribute			//tag[@attribute='value']
+And				//tag[@attribute='value' and @attribute = 'value']
+OR				//tag[@attribute='value' or @attribute = 'value']
+*				//*[text()='value']
+text				//tagname[text()='value']
+contains text		//tagname[contains(text(),'value')]
+contains attribute	//tagname[contains(@class,'value')]
+starts-with			//tagname[starts-with(@id,'value_')]
+ends-with			//tagname[ends-with(@id,'value_')]
+
+
+XPATH Access
+=============
+Identify the Nodes 
+When a node does not have any idenetifying attribute 
+---------------------------------------------------
+//li[@aria-label='Company']//child::li[2] 
+//li[@aria-label='Company']//parent::ul
+//li[@aria-label='Company']//ancestor:nav 
+//li[@aria-label='Company']//descendant::a  //children's children
+//li[@aria-label='Company']//preceding-sibling::li[@aria-label = 'Resources'] 
+//li[@aria-label='Company']//following-sibling::li[@aria-label = 'Contact'] 
+//li[@aria-label='Company']//following::* //bring everything
+//li[@aria-label='Company']//preceding::*
+//li[@aria-label='Company']//descendant-or-self::* // all the descendants along with self
+//li[@aria-label='Company']//ancestor-or-self::*
+
+
+Relative Locators (Selenium 4)
+==============================
+
+
+
+
+
+
+
+
+
+
+

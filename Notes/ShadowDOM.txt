@@ -1,0 +1,30 @@
+Shadow DOM
+===========
+Encapsulated and isolated web components
+
+        Document
+    regular    shadow host
+                =======================(isolated)
+    regular       element1    element2
+                  element3                (shadow tree)
+                =========================
+Presence of shadow root(open) : cannot detect the element within it
+Shadow host : starting point of shadow root
+
+Solution :  JavaScript Executor , use only css selectors
+
+document.querySelector("settings-ui") //initial shadow host
+document.querySelector("settings-ui").shadowRoot.querySelector("settings-main").shadowRoot.querySelector("settings-basic-page")
+.shadowRot.querySelector("settings-section[page-title =Appearance] > settings-appearance-page")
+.shadowRoot.querySelector("settings-animated-pages > div > settings-toggle-button#idname")
+.shadowRoot.querySelector("cr-toggle#control")
+
+JavaScriptExecutor js = (JavaScriptExecutor) driver;
+WebElement toggleButton = (WebElement) js.executeScript("return document.......")
+js.executeScript("arguments[0].click()",toggleButton)
+
+=========
+Short Cut
+==========
+if shadow-root is in open status
+Then we can use Copy js path

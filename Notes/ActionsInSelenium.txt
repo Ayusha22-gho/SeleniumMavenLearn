@@ -1,0 +1,73 @@
+Mouse and KeyBoard actions
+===========================
+1) clicking, hovering, dragging,typing
+2)context clicking => right click can be used
+3)Drag and Drop
+4)Hover => trigger events(tooltips, drop down)
+5)sending keys
+6) modifiers => Ctrl+C. ctrl+v
+7)Navigation : Arrow, enter, tab to navigate through web pages
+8)Special Keys : Enter,Esc,Backspace can be sent.
+
+==============
+Action Class
+==============
+Import the Action Class which is an interactions API
+//To define and invoke action class
+Actions action = new Actions(driver);
+
+action.moveToElement(ele).perform();
+action.build() // builds the action, create an instance of Action class
+
+Methods
+========
+
+Mouse Actions
+--------------
+doubleClick();
+dragAndDrop(WebElement source, WebElement target);
+clickAndHold() // perofrms long click
+moveToElement() // shifts mouse pointer to the center of element
+moveToElement(WebElement target)
+moveToElement(WebElement target, int xoffset, int yoffset)
+contextClick()  //performs right click on the mouse
+
+Keyboard Actions
+-----------------
+keyUp()  //key release
+keyDown() // performs keypress without release
+sendKeys()
+
+================
+Handling Cookies
+=================
+
+Cookies stores info in key-value pair.
+testing scenarios of authentication, session information and user preferences.
+
+Benefits
+-> realistic testing (user preferences & session info)
+-> enhanced test coverage
+
+Selenium Methods
+----------------
+
+Getting Cookies
+Set<Cookies> cookies = driver.manage().getCookies();
+
+Adding Cookies
+Cookie cookie = new Cookie("name","value");
+driver.manage().addCookie(cookie);
+
+Deleting Cookies
+driver.manage().deleteCookieName('cookieName')
+driver.manage().deleteAllCookies();
+
+Modifying Cookies
+Cookie cookie = driver.manage().getCookieName('cookiename')
+cookie.getName();
+
+driver.manage().addCookie(new Cookie("name","cdc","dewdd"));
+
+
+

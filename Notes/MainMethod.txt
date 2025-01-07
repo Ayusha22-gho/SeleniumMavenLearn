@@ -1,0 +1,9 @@
+public static void main(String[] args)
+
+public -> identifier , other classes can access
+static -> keyword-> main method will run without creating any object / without creating an instance of the class
+void -> return type null
+main -> default function , without main program will not run
+String args[] -> main method taking arguments from command line in form of array of type String
+                An array that stores command-line arguments, which allow users to input data when they run the program.
+
